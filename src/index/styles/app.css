@@ -22,6 +22,7 @@
   padding: 8px 30px;
   font-weight: bold;
   border-radius: 20px;
+  border-color: #0bce6ba3;
 }
 
 .input_style:focus {
@@ -208,4 +209,19 @@ a {
 
 .nav-item{
   padding: 0 20px 0px 0px;
+}
+
+
+.cv_left_nav_style
+{
+  float: left;
+  margin-left:-10px
+}
+.side_nav_style{
+  width: 0;
+  height: 0;
+}
+
+.cv_page_style{
+  height: 100%;
 }

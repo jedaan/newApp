@@ -4,6 +4,9 @@ import {
   Container,
   Col,
   Row,
+  Nav,
+  NavItem,
+  NavLink
 } from 'reactstrap';
 import moment from 'moment';
 import { bindActionCreators } from 'redux';
@@ -12,6 +15,8 @@ import requireAuth from '../components/hocs/requireAuth';
 import CvHeader from '../components/cv/cvHeader';
 import CvContactInfo from '../components/cv/cvContactInfo';
 import { isEmptyObject } from '../helpers/validate';
+import SideNavigator from '../components/sideNavigator';
+import CvAboutMe from '../components/cv/cvAboutMe';
 
 class CvPage extends Component {
   constructor(props) {
@@ -31,52 +36,58 @@ class CvPage extends Component {
 
 
   render() {
-    debugger;
     let { userData } = this.props;
-    if(isEmptyObject(userData)){
+    if (isEmptyObject(userData)) {
       return null;
     }
     return (
-      <Container>
-        <Row>
-          <Col>
-            <CvHeader
-              firstName={userData.firstName}
-              lastName={userData.lastName} />
-          </Col>
-        </Row>
-        <Row>
-          <Col>...</Col>
-          <Col>...</Col>
-          <Col><CvContactInfo phone={userData.phone}
-            email={userData.email} /></Col>
-          <Col>...</Col>
-        </Row>
-        <Row>
-          <Col xs="3">.col-3</Col>
-          <Col xs="auto">.col-auto - variable width content</Col>
-          <Col xs="3">.col-3</Col>
-        </Row>
-        <Row>
-          <Col xs="6">.col-6</Col>
-          <Col xs="6">.col-6</Col>
-        </Row>
-        <Row>
-          <Col xs="6" sm="4">.col-6 .col-sm-4</Col>
-          <Col xs="6" sm="4">.col-6 .col-sm-4</Col>
-          <Col sm="4">.col-sm-4</Col>
-        </Row>
-        <Row>
-          <Col sm={{ size: 6, order: 2, offset: 1 }}>.col-sm-6 .order-sm-2 .offset-sm-1</Col>
-        </Row>
-        <Row>
-          <Col sm="12" md={{ size: 6, offset: 3 }}>.col-sm-12 .col-md-6 .offset-md-3</Col>
-        </Row>
-        <Row>
-          <Col sm={{ size: 'auto', offset: 1 }}>.col-sm-auto .offset-sm-1</Col>
-          <Col sm={{ size: 'auto', offset: 1 }}>.col-sm-auto .offset-sm-1</Col>
-        </Row>
-      </Container>
+      <div className="cv_page_style">
+        <Container>
+          <Row>
+            <Col md={1}>
+              <SideNavigator />
+            </Col>
+            <Col>
+              <CvAboutMe />
+              {/*  <CvAboutMe />
+              <CvHeader
+                firstName={userData.firstName}
+                lastName={userData.lastName} /> */}
+            </Col>
+          </Row>
+          {/* <Row>
+            <Col>...</Col>
+            <Col>...</Col>
+            <Col><CvContactInfo phone={userData.phone}
+              email={userData.email} /></Col>
+            <Col>...</Col>
+          </Row>
+          <Row>
+            <Col xs="3">.col-3</Col>
+            <Col xs="auto">.col-auto - variable width content</Col>
+            <Col xs="3">.col-3</Col>
+          </Row>
+          <Row>
+            <Col xs="6">.col-6</Col>
+            <Col xs="6">.col-6</Col>
+          </Row>
+          <Row>
+            <Col xs="6" sm="4">.col-6 .col-sm-4</Col>
+            <Col xs="6" sm="4">.col-6 .col-sm-4</Col>
+            <Col sm="4">.col-sm-4</Col>
+          </Row>
+          <Row>
+            <Col sm={{ size: 6, order: 2, offset: 1 }}>.col-sm-6 .order-sm-2 .offset-sm-1</Col>
+          </Row>
+          <Row>
+            <Col sm="12" md={{ size: 6, offset: 3 }}>.col-sm-12 .col-md-6 .offset-md-3</Col>
+          </Row>
+          <Row>
+            <Col sm={{ size: 'auto', offset: 1 }}>.col-sm-auto .offset-sm-1</Col>
+            <Col sm={{ size: 'auto', offset: 1 }}>.col-sm-auto .offset-sm-1</Col>
+          </Row> */}
+        </Container>
+      </div>
     )
   }
 }

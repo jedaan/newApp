@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom"
 export default ComposedComponent => {
   class RequireAuth extends Component {
     render() {
-      debugger;
       const { authenticated } = this.props;
 
       switch (authenticated) {

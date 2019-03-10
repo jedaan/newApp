@@ -26,7 +26,6 @@ export const registerNewUser = (User, Degrees, Companies, Skills, Languages) => 
 
 
 export const firstLogIn = (email, password) => async (dispatch, getState, api) => {
-  debugger;
   try {
     const response = await api.post("/users/firstLogIn", {
       email, password
