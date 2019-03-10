@@ -4,8 +4,6 @@ export const fetchRegistrationData = () => async (dispatch, getState, api) => {
   await api.post("/users/newuser")
     .then(response => {
       const { data } = getState();
-      console.log('prev  response response', data);
-      console.log('payload', response.data);
       dispatch({
         type: type.FETCH_REGISTER_DATA,
         payload: response.data
@@ -52,7 +50,6 @@ export const firstLogIn = (email, password) => async (dispatch, getState, api) =
 
 export const logIn = (email, password) => async (dispatch, getState, api) => {
   try {
-    console.log('login ---', api);
     const response = await api.post("/users/logIn", {
       email, password
     }).then(response => {
@@ -78,7 +75,7 @@ export const logIn = (email, password) => async (dispatch, getState, api) => {
 
 export const logOut = () => async (dispatch, getState, api) => {
   try {
-    console.log('logut ');
+    console.log('logout');
     localStorage.clear();
     dispatch({
       type: type.SUCCESS_LOG_OUT,

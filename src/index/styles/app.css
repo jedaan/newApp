@@ -1,9 +1,37 @@
-/* body {
-  background: aliceblue;
+ 
+ #root {
+  overflow-x: hidden;
 }
 
-.root {
-  overflow-x: hidden;
+.register_page_container{
+  margin-top: 10px;
+}
+
+.btn{
+  background-color: #0bceaf;
+  color: #fff;
+  padding: 8px 30px;
+  font-weight: bold;
+  border-radius: 20px;
+  border-color: #0bceaf;
+}
+
+.btn:hover{
+  background-color: #0bceaf;
+  color: #fff;
+  padding: 8px 30px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.input_style:focus {
+  border-color: #0bceaf7d;
+  box-shadow: 0 1px 1px #0bceaf7d inset, 0 0 8px #0bceaf7d;
+  outline: 0 none;
+}
+
+.custom-select.is-invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .was-validated .form-control:invalid {
+  border-color: #dc35456b;
 }
 
 .background_color {
@@ -12,7 +40,7 @@
 
 .register_container {
   width: 90%;
-  margin-top: 2%;
+  margin-top: 10%;
   margin-left: 4%;
 }
 
@@ -33,38 +61,27 @@
   margin-left: 18px;
 }
 
-.button_style {
-  background-color: #15cfed;
-}
-
 .add_education_button {
-  background-color: #15cfed;
   margin-top: 32px;
   margin-left: 10px;
 } 
-
 .education_cmp {
   margin-left: 4%;
-  margin-top: 4%;
+  margin-top: 10%;
 }
 
 .data_saved {
-  margin-top: 4%;
+  margin-top: 10%;
 }
 
-.personal_data_indication {
-
-}
 
 .finish_button_style {
-  background-color: #15cfed;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 50%;
   margin-top: 22%;
 }
-
 .education_work_data_indication {
   margin-top: 5px;
 }
@@ -100,16 +117,10 @@
 
 .login_button_style {
   width: 100%;
-  background-color: #15cfed;
   margin-bottom: 16px;
 }
 
 
-.test:focus {
-  border-color: rgba(229, 103, 23, 0.8);
-  box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(236, 34, 29, 0.6);
-  outline: 0 none;
-}
 .progress-bar {
   background-color: #15cfed;
 
@@ -119,6 +130,82 @@ a {
   color: #ffffff;
 }
 
-a:hover {
-  color: red;
-} */
+
+.navbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    background:#0bceaf0d;
+    z-index: 1000;
+}
+    
+    
+.navbar-brand{
+  padding: 8px 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.navbar-nav .nav-link{
+  padding: 8px 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.navbar-nav .nav-link:hover{
+  color: #0bceaf;
+
+}
+.navbar-toggler:not(:disabled):not(.disabled) {
+  cursor: pointer;
+    margin-top: 8px;
+}
+.toggle {
+  margin-top: 6px;
+  display: block;
+  width: 28px;
+  height: 30px;
+  width: 50px;
+}
+
+.toggle span:after,
+.toggle span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -9px;
+}
+.toggle span:after{
+  top: 9px;
+}
+.toggle span {
+  position: relative;
+  display: block;
+}
+
+.toggle span,
+.toggle span:after,
+.toggle span:before {
+  width: 100%;
+  height: 5px;
+  background-color:black;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  border-radius: 2px;
+}
+
+/* on activation */
+.toggle.on span {
+  background-color: transparent;
+}
+.toggle.on span:before {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.toggle.on span:after {
+  transform: rotate(-45deg) translate(7px, -8px);
+}
+
+
+.nav-item{
+  padding: 0 20px 0px 0px;
+}

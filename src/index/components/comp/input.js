@@ -48,7 +48,7 @@ class InputHoc extends Component {
       <div>
         <Label for={id}>{labelName}</Label>
         {(valid) ?
-          <Input id={id} {...other} onChange={(e) => this.handleOnChange(e)}
+          <Input className="input_style" id={id} {...other} onChange={(e) => this.handleOnChange(e)}
                  onBlur={(e) => this.handleBlur(e)}/>
           :
           <Input {...other} invalid onChange={(e) => this.handleOnChange(e)}

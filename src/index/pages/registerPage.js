@@ -90,7 +90,6 @@ class RegisterPage extends Component {
   }
 
   handleSubmitRegister() {
-    console.log('finish');
     let logInFromRegister = true;
     let { email } = this.state.personalData;
     let { personalData, educationData, workData, skillsData, languagesData } = this.state;
@@ -106,7 +105,7 @@ class RegisterPage extends Component {
     } = this.state;
     let { Countries, Degrees, Institution, Companies, Skill, Language } = this.props.registerData;
     return (
-      <div>
+      <div className="register_page_container">
         <div className="text-center">{completion}%</div>
         <Progress value={this.state.completion} color={MAIN_BACKGROUND_COLOR} />
         <Row form>

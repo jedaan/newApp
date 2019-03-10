@@ -26,8 +26,8 @@ class Header extends React.Component {
     return (
       <div >
         <Navbar expand="md">
-          <NavbarBrand href="/">Improve your candidacy</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <img src="../../../assets/images/logo.png" width="50px" height="50px"></img>
+          <NavbarToggler onClick={this.toggle} className="toggle" />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -38,7 +38,7 @@ class Header extends React.Component {
               </NavItem>
               {authenticated ?
                 <NavItem>
-                  <NavLink onClick={this.props.handleLogOut}>Logout</NavLink>
+                  <NavLink href="#" onClick={this.props.handleLogOut}>Logout</NavLink>
                 </NavItem> :
                 <NavItem>
                   <NavLink href="/login">Login</NavLink>

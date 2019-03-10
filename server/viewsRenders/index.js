@@ -21,9 +21,17 @@ export default (req, store, context) => {
   return `
       <html>
         <head>
-          ${helmet.title.toString()}
-          ${helmet.meta.toString()}
-          <link  rel="stylesheet" href="../styles/index.css">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Maha Personal cv/resume template for professional and personal website." />
+        <meta name="keywords" content="creative, cv, designer,  online cv, online resume, professional resume, responsive, resume, vcard " />
+        <meta name="developer" content="Md. Siful Islam">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/plugins/css/bootstrap.min.css">
+
+        <link  rel="stylesheet" href="../styles/index.css">
         </head>
         <body>
           <div id="root">${content}</div>
