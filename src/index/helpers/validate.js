@@ -59,6 +59,9 @@ export const isEmptyObject = (obj) => {
   if (obj === undefined) {
     return true;
   }
+  if(typeof(obj) === "boolean"){
+    return false;
+  }
   for (let key in obj) {
     if (obj.hasOwnProperty(key))
       return false;

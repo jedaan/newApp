@@ -84,3 +84,20 @@ export const logOut = () => async (dispatch, getState, api) => {
     console.log('error - logOut ', e.message);
   }
 };
+
+
+export const checkEmail = (email) => async (dispatch, getState, api) => {
+  try {
+    const response = await api.post("/users/UserIsExsist", {
+      email
+    }).then(response => {
+      let valid = response.data;
+      dispatch({
+        type: type.VALID_EMAIL,
+        payload: valid
+      });
+    });
+  } catch (e) {
+    console.log('error - checkEmail ', e.message);
+  }
+};

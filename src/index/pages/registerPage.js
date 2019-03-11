@@ -8,7 +8,7 @@ import {
 import moment from 'moment';
 import { bindActionCreators } from 'redux'
 import { connect } from "react-redux";
-import { fetchRegistrationData, registerNewUser } from "../../data/actions/index";
+import { fetchRegistrationData, registerNewUser, checkEmail } from "../../data/actions/index";
 import { MAIN_BACKGROUND_COLOR } from "../helpers/constant";
 import PersonalData from '../components/register/personalData';
 import EducationWorkData from '../components/register/educationWorkData';
@@ -30,12 +30,14 @@ class RegisterPage extends Component {
       workData: [],
       skillsData: [],
       languagesData: [],
+      userExsist:false
     };
     this.handleSubmitPersonalData = this.handleSubmitPersonalData.bind(this);
     this.handleSubmitEducationWorkData = this.handleSubmitEducationWorkData.bind(this)
     this.handleSubmitRegister = this.handleSubmitRegister.bind(this);
     this.handleEducationWorkUpdate = this.handleEducationWorkUpdate.bind(this);
     this.handleSkillsUpdate = this.handleSkillsUpdate.bind(this);
+    this.handleCheckUserExsist = this.handleCheckUserExsist.bind(this);
   }
 
   /**
@@ -97,6 +99,9 @@ class RegisterPage extends Component {
     this.props.history.push('/login/' + email + '/' + logInFromRegister);
   }
 
+  handleCheckUserExsist(email) {
+    this.props.handleCheckEmail(email);
+  }
 
   render() {
     let {
@@ -104,6 +109,7 @@ class RegisterPage extends Component {
       showEducationData, showSkillsData, completion, skillsData, languagesData
     } = this.state;
     let { Countries, Degrees, Institution, Companies, Skill, Language } = this.props.registerData;
+    let userExsist = this.props.dbValidate;
     return (
       <div className="register_page_container">
         <div className="text-center">{completion}%</div>
@@ -112,7 +118,10 @@ class RegisterPage extends Component {
           <Col>
             {showPersonalData && <PersonalData countries={Countries}
               years={years}
-              onSubmit={this.handleSubmitPersonalData} />}
+              userExsist={userExsist}
+              onSubmit={this.handleSubmitPersonalData}
+              onCheckUser={this.handleCheckUserExsist} />}
+
             {showEducationData &&
               <EducationWorkData degrees={Degrees}
                 institution={Institution}
@@ -147,9 +156,10 @@ class RegisterPage extends Component {
   }
 }
 
-function mapStateToProps({ registerData }) {
+function mapStateToProps({ registerData, dbValidate }) {
   return {
-    registerData
+    registerData,
+    dbValidate
   };
 }
 
@@ -157,6 +167,7 @@ function mapStateToProps({ registerData }) {
 function mapDispatchToProps(dispatch) {
   return ({
     handleAddNewUser: bindActionCreators(registerNewUser, dispatch),
+    handleCheckEmail: bindActionCreators(checkEmail, dispatch),
   })
 }
 

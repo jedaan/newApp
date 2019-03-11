@@ -5,6 +5,7 @@ import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import RegisterForm from '../hocs/registerForm';
 import InputHoc from '../comp/input';
 import OptionHoc from '../comp/option';
+import { isEmptyObject } from '../../helpers/validate';
 
 class PersonalData extends Component {
   constructor(props) {
@@ -49,6 +50,9 @@ class PersonalData extends Component {
     this.setState((prevState) => ({
       validData: this.props.onSetValid(prevState.validData, name, value)
     }));
+    if (name === 'email') {
+      this.props.onCheckUser(this.state.formData.email);
+    }
   }
 
   genderChange(value) {
@@ -63,7 +67,10 @@ class PersonalData extends Component {
 
   render() {
     let { formData, validData } = this.state;
-    let { countries } = this.props;
+    let { countries, userExsist } = this.props;
+    debugger;
+    userExsist = isEmptyObject(userExsist) ? false : userExsist;
+    console.log('aaaaa - ', userExsist);
     return (
       <div className="register_container">
         <h3>Personal data</h3>
@@ -167,7 +174,7 @@ class PersonalData extends Component {
           </Col>
         </Row>
         <Button active={true} color={MAIN_BACKGROUND_COLOR} className="button_style"
-          onClick={() => this.props.onSubmitForm(formData, validData)}>Next</Button>
+          onClick={() => this.props.onSubmitForm(formData, validData)} disabled={userExsist}>Next</Button>
       </div>
     )
   }
