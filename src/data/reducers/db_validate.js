@@ -6,6 +6,6 @@ export default (state = {}, action) => {
         case VALID_EMAIL:
             return payload;
         default:
-            return state
+            return state;
     }
-}
+};

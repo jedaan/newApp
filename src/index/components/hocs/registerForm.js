@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
-import {validate, isEmptyObject, isEmptyArray} from "../../helpers/validate";
+import React, {Component} from 'react';
+import {validate, isEmptyObject, isEmptyArray} from '../../helpers/validate';
 
 const RegisterForm = (WrappedComponent) => {
-  return class extends Component {
+  return class Cmp extends Component {
     constructor(props) {
       super(props);
       this.state = {};
@@ -61,10 +61,10 @@ const RegisterForm = (WrappedComponent) => {
                           onSetValid={this.handleSetValid}
                           onSubmitForm={this.handleSubmitForm}
                           onSubmitAddForm={this.handleSubmitAddForm}/>
-      )
+      );
     }
-  }
+  };
 
 };
 
-export default RegisterForm
+export default RegisterForm;

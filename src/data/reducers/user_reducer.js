@@ -12,10 +12,10 @@ export default (state = {}, action) => {
             return {
                 authenticated: payload,
                 data: null
-            }
+            };
         case FETCH_USER_DATA:
-            return { data: payload }
+            return { data: payload };
         default:
-            return state
+            return state;
     }
-}
+};

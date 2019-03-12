@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import RegisterForm from '../hocs/registerForm';
 import OptionHoc from '../comp/option';
-import { MAIN_BACKGROUND_COLOR } from "../../helpers/constant";
-import { validate } from "../../helpers/validate";
+import { MAIN_BACKGROUND_COLOR } from '../../helpers/constant';
+import { validate } from '../../helpers/validate';
 
 class EducationFields extends React.Component {
   constructor(props) {
@@ -45,13 +45,14 @@ class EducationFields extends React.Component {
         validData: {
           institution: false, graduate: false, degree: false
         },
-      })
+      });
     } else {
       //ToDo --
     }
   }
 
   render() {
+    let active = true;
     let { formData } = this.state;
     let { institutions, degrees } = this.props;
     return (
@@ -94,7 +95,7 @@ class EducationFields extends React.Component {
           </Col>
           <Col md={2}>
             <FormGroup>
-              <Button active={true} color={MAIN_BACKGROUND_COLOR} className="add_education_button"
+              <Button active={active} color={MAIN_BACKGROUND_COLOR} className="add_education_button"
                 onClick={this.handleAddNewEducation}>Add</Button>
             </FormGroup>
           </Col>

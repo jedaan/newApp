@@ -1,10 +1,10 @@
 import React from 'react';
-import {Button, Col, Form, FormGroup, Input, Label, Row} from 'reactstrap';
+import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import InputHoc from '../comp/input';
 import OptionHoc from '../comp/option';
-import {MAIN_BACKGROUND_COLOR} from "../../helpers/constant";
-import {validate} from "../../helpers/validate";
-import RegisterForm from "../hocs/registerForm";
+import { MAIN_BACKGROUND_COLOR } from '../../helpers/constant';
+import { validate } from '../../helpers/validate';
+import RegisterForm from '../hocs/registerForm';
 
 const END_DATE_NAME = "endDate";
 const CURRENT_WORK = "currentWork";
@@ -56,18 +56,18 @@ class ExperienceFields extends React.Component {
         validData: {
           company: false, role: false, currentWork: false, startDate: false, endDate: false
         },
-      })
+      });
     } else {
-
+      // Todo
     }
   }
 
   handleCurrentWork(target) {
     let checked = target.checked;
-    this.setState({currentWork: checked});
+    this.setState({ currentWork: checked });
     let formData = Object.assign({}, this.state.formData);
     formData[target.name] = checked;
-    this.setState({formData});
+    this.setState({ formData });
     if (checked === true) {
       let me = this;
       setTimeout(function () {
@@ -81,7 +81,7 @@ class ExperienceFields extends React.Component {
     let formData = Object.assign({}, this.state.formData);
     formData[target.name] = target.value;
     this.handleSetValid(target.name, true);
-    this.setState({formData});
+    this.setState({ formData });
     if (target.name === END_DATE_NAME) {
       let me = this;
       setTimeout(function () {
@@ -91,7 +91,8 @@ class ExperienceFields extends React.Component {
   }
 
   render() {
-    let {formData, currentWork} = this.state;
+    let active = true;
+    let { formData, currentWork } = this.state;
     return (
       <div className="work_experience">
         <h3>Work experience</h3>
@@ -99,32 +100,32 @@ class ExperienceFields extends React.Component {
           <Col md={4}>
             <FormGroup>
               <OptionHoc data={this.props.companies}
-                         labelName={"Company"}
-                         type="select" name="company"
-                         id="company"
-                         value={formData.company}
-                         onValueChange={this.handleInputSave}
-                         onSetValid={this.handleSetValid}/>
+                labelName={"Company"}
+                type="select" name="company"
+                id="company"
+                value={formData.company}
+                onValueChange={this.handleInputSave}
+                onSetValid={this.handleSetValid} />
             </FormGroup>
           </Col>
           <Col md={4}>
             <FormGroup>
               <InputHoc labelName={"Role"}
-                        type="text"
-                        name="role"
-                        id="role"
-                        value={formData.role}
-                        onValueChange={this.handleInputSave}
-                        onSetValid={this.handleSetValid}/>
+                type="text"
+                name="role"
+                id="role"
+                value={formData.role}
+                onValueChange={this.handleInputSave}
+                onSetValid={this.handleSetValid} />
             </FormGroup>
           </Col>
           <Col md={4}>
             <FormGroup row>
-              <Col sm={{size: 20}}>
+              <Col sm={{ size: 20 }}>
                 <FormGroup check className="register_checkbox">
                   <Label check>
                     <Input type="checkbox" id={CURRENT_WORK} name={CURRENT_WORK}
-                           onChange={(e) => this.handleCurrentWork(e.target)}/>{' '}
+                      onChange={(e) => this.handleCurrentWork(e.target)} />{' '}
                     Current work
                   </Label>
                 </FormGroup>
@@ -146,22 +147,22 @@ class ExperienceFields extends React.Component {
             </FormGroup>
           </Col>
           {(!currentWork) &&
-          <Col md={4}>
-            <FormGroup>
-              <Label for="End">End</Label>
-              <Input
-                type="date"
-                name={END_DATE_NAME}
-                id={END_DATE_NAME}
-                placeholder="End"
-                onChange={(e) => this.handleChangeDate(e.target)}
-              />
-            </FormGroup>
-          </Col>}
+            <Col md={4}>
+              <FormGroup>
+                <Label for="End">End</Label>
+                <Input
+                  type="date"
+                  name={END_DATE_NAME}
+                  id={END_DATE_NAME}
+                  placeholder="End"
+                  onChange={(e) => this.handleChangeDate(e.target)}
+                />
+              </FormGroup>
+            </Col>}
           <Col md={2}>
             <FormGroup>
-              <Button active={true} color={MAIN_BACKGROUND_COLOR} className="add_education_button"
-                      onClick={this.handleAddNewWork}>Add</Button>
+              <Button active={active} color={MAIN_BACKGROUND_COLOR} className="add_education_button"
+                onClick={this.handleAddNewWork}>Add</Button>
             </FormGroup>
           </Col>
         </Row>

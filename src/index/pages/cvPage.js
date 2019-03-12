@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import {
   Container,
-  Col,
-  Row,
-  Nav,
-  NavItem,
-  NavLink
 } from 'reactstrap';
-import moment from 'moment';
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import requireAuth from '../components/hocs/requireAuth';
-import CvHeader from '../components/cv/cvHeader';
-import CvContactInfo from '../components/cv/cvContactInfo';
 import { isEmptyObject } from '../helpers/validate';
 import SideNavigator from '../components/sideNavigator';
 import CvAboutMe from '../components/cv/cvAboutMe';
@@ -42,19 +34,13 @@ class CvPage extends Component {
     }
     return (
       <div className="cv_page_style">
+        <SideNavigator />
         <Container>
-          <Row>
-            <Col md={1}>
-              <SideNavigator />
-            </Col>
-            <Col>
-              <CvAboutMe />
-              {/*  <CvAboutMe />
+          <CvAboutMe />
+          {/*  <CvAboutMe />
               <CvHeader
                 firstName={userData.firstName}
                 lastName={userData.lastName} /> */}
-            </Col>
-          </Row>
           {/* <Row>
             <Col>...</Col>
             <Col>...</Col>
@@ -87,8 +73,8 @@ class CvPage extends Component {
             <Col sm={{ size: 'auto', offset: 1 }}>.col-sm-auto .offset-sm-1</Col>
           </Row> */}
         </Container>
-      </div>
-    )
+      </div >
+    );
   }
 }
 
@@ -102,10 +88,10 @@ function mapStateToProps({ userData }) {
 function mapDispatchToProps(dispatch) {
   return ({
     // handleAddNewUser: bindActionCreators(registerNewUser, dispatch),
-  })
+  });
 }
 
 
 export default {
   component: connect(mapStateToProps, mapDispatchToProps)(requireAuth(withRouter(CvPage)))
-}
+};

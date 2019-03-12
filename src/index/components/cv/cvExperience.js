@@ -6,7 +6,7 @@ const CvExperience = ({ experience }) => (
     <div>
         {(experience.length > 0) &&
             experience.map((index, item) =>
-                <div>
+                <div key={index}>
                     <h3>{item}</h3> <br />
                 </div>
             )

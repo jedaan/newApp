@@ -1,10 +1,10 @@
-import React, {Component} from "react"
-import {Button, Col, Form, FormGroup, Input, Label, Row} from 'reactstrap';
+import React, { Component } from 'react';
+import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import InputHoc from '../comp/input';
 import OptionHoc from '../comp/option';
-import RegisterForm from "../hocs/registerForm";
-import {isEmptyArray, validate} from "../../helpers/validate";
-import {MAIN_BACKGROUND_COLOR} from "../../helpers/constant";
+import RegisterForm from '../hocs/registerForm';
+import { isEmptyArray, validate } from '../../helpers/validate';
+import { MAIN_BACKGROUND_COLOR } from '../../helpers/constant';
 
 class SkillsData extends Component {
   constructor(props) {
@@ -49,9 +49,9 @@ class SkillsData extends Component {
   }
 
   handleAddNewSkill() {
-    let {formData, validData} = this.state;
+    let { formData, validData } = this.state;
     if (validate(validData, 'skill')) {
-      let data = {skill: formData.skill, skillContent: formData.skillContent};
+      let data = { skill: formData.skill, skillContent: formData.skillContent };
       let skillsData = Object.assign([], this.state.skillsData);
       skillsData.push(data);
       this.setState({
@@ -67,14 +67,14 @@ class SkillsData extends Component {
       this.handleShowFinish();
       this.props.onSkillsUpdate(this.state.languagesData, skillsData);
     } else {
-
+      // ToDo
     }
   }
 
   handleAddNewLanguage() {
-    let {formData, validData} = this.state;
+    let { formData, validData } = this.state;
     if (validate(validData, 'language')) {
-      let data = {language: formData.language, languageContent: formData.languageContent};
+      let data = { language: formData.language, languageContent: formData.languageContent };
       let languagesData = Object.assign([], this.state.languagesData);
       languagesData.push(data);
       this.setState({
@@ -90,25 +90,26 @@ class SkillsData extends Component {
       this.handleShowFinish();
       this.props.onSkillsUpdate(languagesData, this.state.skillsData);
     } else {
-
+      // todo 
     }
   }
 
   handleShowFinish() {
-    let {disabledFinish} = this.state;
+    let { disabledFinish } = this.state;
     if (disabledFinish === true) {
       let self = this;
       setTimeout(function () {
-        let {skillsData, languagesData} = self.state;
+        let { skillsData, languagesData } = self.state;
         if (!isEmptyArray(skillsData) && !isEmptyArray(languagesData)) {
-          self.setState({disabledFinish: false});
+          self.setState({ disabledFinish: false });
         }
       }, 250);
     }
   }
 
   render() {
-    let {formData, skillsData, languagesData,disabledFinish} = this.state;
+    let active = true;
+    let { formData, skillsData, languagesData, disabledFinish } = this.state;
     return (
       <div className="register_container">
         <h3>Work experience</h3>
@@ -116,18 +117,18 @@ class SkillsData extends Component {
           <Col md={4}>
             <FormGroup>
               <OptionHoc data={this.props.skills}
-                         labelName={"Skill"}
-                         type="select" name="skill"
-                         id="skill"
-                         value={formData.skill}
-                         onValueChange={this.handleInputSave}
-                         onSetValid={this.handleSetValid}/>
+                labelName={"Skill"}
+                type="select" name="skill"
+                id="skill"
+                value={formData.skill}
+                onValueChange={this.handleInputSave}
+                onSetValid={this.handleSetValid} />
             </FormGroup>
           </Col>
           <Col md={2}>
             <FormGroup>
-              <Button active={true} color={MAIN_BACKGROUND_COLOR} className="add_education_button"
-                      onClick={this.handleAddNewSkill}>Add</Button>
+              <Button active={active} color={MAIN_BACKGROUND_COLOR} className="add_education_button"
+                onClick={this.handleAddNewSkill}>Add</Button>
             </FormGroup>
           </Col>
         </Row>
@@ -136,25 +137,25 @@ class SkillsData extends Component {
           <Col md={4}>
             <FormGroup>
               <OptionHoc data={this.props.languages}
-                         labelName={"Language"}
-                         type="select" name="language"
-                         id="language"
-                         value={formData.language}
-                         onValueChange={this.handleInputSave}
-                         onSetValid={this.handleSetValid}/>
+                labelName={"Language"}
+                type="select" name="language"
+                id="language"
+                value={formData.language}
+                onValueChange={this.handleInputSave}
+                onSetValid={this.handleSetValid} />
             </FormGroup>
           </Col>
           <Col md={2}>
             <FormGroup>
-              <Button active={true} color={MAIN_BACKGROUND_COLOR} className="add_education_button"
-                      onClick={this.handleAddNewLanguage}>Add</Button>
+              <Button active={active} color={MAIN_BACKGROUND_COLOR} className="add_education_button"
+                onClick={this.handleAddNewLanguage}>Add</Button>
             </FormGroup>
           </Col>
         </Row>
 
-        <Button active={true} color={MAIN_BACKGROUND_COLOR} className="finish_button_style"
-                onClick={() => this.props.onSubmitAddForm(languagesData, skillsData)}
-                disabled={disabledFinish}>Finish</Button>
+        <Button active={active} color={MAIN_BACKGROUND_COLOR} className="finish_button_style"
+          onClick={() => this.props.onSubmitAddForm(languagesData, skillsData)}
+          disabled={disabledFinish}>Finish</Button>
       </div>);
   }
 }

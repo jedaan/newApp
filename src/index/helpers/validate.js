@@ -71,7 +71,7 @@ export const isEmptyObject = (obj) => {
 
 export const isEmptyArray = (obj) => {
   if (!isEmptyObject(obj)) {
-    return obj.length <= 0
+    return obj.length <= 0;
   }
   return true;
 };

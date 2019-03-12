@@ -7,10 +7,10 @@ export const fetchRegistrationData = () => async (dispatch, getState, api) => {
       dispatch({
         type: type.FETCH_REGISTER_DATA,
         payload: response.data
-      })
+      });
     })
     .catch(error => {
-      console.log('error', error.response)
+      console.log('error', error.response);
     });
 };
 
@@ -21,7 +21,7 @@ export const registerNewUser = (User, Degrees, Companies, Skills, Languages) => 
   dispatch({
     type: type.FETCH_REGISTER_DATA,
     payload: response.data
-  })
+  });
 };
 
 
@@ -30,7 +30,7 @@ export const firstLogIn = (email, password) => async (dispatch, getState, api) =
     const response = await api.post("/users/firstLogIn", {
       email, password
     }).then(response => {
-      let user = response.data; 0
+      let user = response.data; 
       localStorage.setItem('user', JSON.stringify(user));
       dispatch({
         type: type.SUCCESS_LOG_IN,

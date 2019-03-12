@@ -26,3 +26,15 @@
   margin: 1rem;
   transition: all 0.2s ease;
 }
+
+.vertical-middle-content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  flex-direction: row;
+  -webkit-flex-direction: row; }

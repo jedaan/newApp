@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { MAIN_BACKGROUND_COLOR } from '../../helpers/constant';
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
@@ -66,9 +66,9 @@ class PersonalData extends Component {
   }
 
   render() {
+    let active = true;
     let { formData, validData } = this.state;
     let { countries, userExsist } = this.props;
-    debugger;
     userExsist = isEmptyObject(userExsist) ? false : userExsist;
     console.log('aaaaa - ', userExsist);
     return (
@@ -173,10 +173,10 @@ class PersonalData extends Component {
             </FormGroup>
           </Col>
         </Row>
-        <Button active={true} color={MAIN_BACKGROUND_COLOR} className="button_style"
+        <Button active={active} color={MAIN_BACKGROUND_COLOR} className="button_style"
           onClick={() => this.props.onSubmitForm(formData, validData)} disabled={userExsist}>Next</Button>
       </div>
-    )
+    );
   }
 }
 

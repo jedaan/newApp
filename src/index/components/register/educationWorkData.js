@@ -1,5 +1,5 @@
-import React, {Component} from "react"
-import PropTypes from "prop-types";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {MAIN_BACKGROUND_COLOR} from '../../helpers/constant';
 import RegisterForm from '../hocs/registerForm';
 import {
@@ -49,6 +49,7 @@ class EducationWorkData extends Component {
   }
 
   render() {
+    let active = true;
     let {years, degrees, institution, companies} = this.props;
     let {workData, educationData} = this.state;
     return (
@@ -66,10 +67,10 @@ class EducationWorkData extends Component {
           onAddNewWork={this.handleAddNewWork}/>
 
 
-        <Button active={true} color={MAIN_BACKGROUND_COLOR} className="button_style"
+        <Button active={active} color={MAIN_BACKGROUND_COLOR} className="button_style"
                 onClick={() => this.props.onSubmitAddForm(workData, educationData)}>Next</Button>
       </Form>
-    )
+    );
   }
 }
 

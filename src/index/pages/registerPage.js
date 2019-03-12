@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import {
   Progress,
   Col,
   Row,
 } from 'reactstrap';
 import moment from 'moment';
-import { bindActionCreators } from 'redux'
-import { connect } from "react-redux";
-import { fetchRegistrationData, registerNewUser, checkEmail } from "../../data/actions/index";
-import { MAIN_BACKGROUND_COLOR } from "../helpers/constant";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { fetchRegistrationData, registerNewUser, checkEmail } from '../../data/actions/index';
+import { MAIN_BACKGROUND_COLOR } from '../helpers/constant';
 import PersonalData from '../components/register/personalData';
 import EducationWorkData from '../components/register/educationWorkData';
 import RegisterIndication from '../components/register/registerIndication';
@@ -33,7 +33,7 @@ class RegisterPage extends Component {
       userExsist:false
     };
     this.handleSubmitPersonalData = this.handleSubmitPersonalData.bind(this);
-    this.handleSubmitEducationWorkData = this.handleSubmitEducationWorkData.bind(this)
+    this.handleSubmitEducationWorkData = this.handleSubmitEducationWorkData.bind(this);
     this.handleSubmitRegister = this.handleSubmitRegister.bind(this);
     this.handleEducationWorkUpdate = this.handleEducationWorkUpdate.bind(this);
     this.handleSkillsUpdate = this.handleSkillsUpdate.bind(this);
@@ -62,8 +62,8 @@ class RegisterPage extends Component {
       step: 1,
       completion: 25,
       personalData
-    })
-  };
+    });
+  }
 
   /**
    * submit education and work data
@@ -79,7 +79,7 @@ class RegisterPage extends Component {
         completion: 70,
       });
     }
-  };
+  }
 
 
   handleEducationWorkUpdate(workData, educationData) {
@@ -152,7 +152,7 @@ class RegisterPage extends Component {
             languagesData={languagesData} />
         </Row>
       </div>
-    )
+    );
   }
 }
 
@@ -168,11 +168,11 @@ function mapDispatchToProps(dispatch) {
   return ({
     handleAddNewUser: bindActionCreators(registerNewUser, dispatch),
     handleCheckEmail: bindActionCreators(checkEmail, dispatch),
-  })
+  });
 }
 
 
 export default {
   loadData: ({ dispatch }) => dispatch(fetchRegistrationData()),
   component: connect(mapStateToProps, mapDispatchToProps)(withRouter(RegisterPage))
-}
+};

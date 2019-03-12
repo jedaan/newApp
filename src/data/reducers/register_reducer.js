@@ -6,6 +6,6 @@ export default (state = {}, action) => {
         case FETCH_REGISTER_DATA:
             return payload;
         default:
-            return state
+            return state;
     }
-}
+};

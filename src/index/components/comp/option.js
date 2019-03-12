@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {validateNumber} from '../../helpers/validate'
+import {validateNumber} from '../../helpers/validate';
 import {Input, Label} from "reactstrap";
 
 class OptionHoc extends Component {
@@ -23,7 +23,7 @@ class OptionHoc extends Component {
       valid = true;
       this.setState({valid});
     }
-    this.props.onSetValid(e.target.name, valid)
+    this.props.onSetValid(e.target.name, valid);
   }
 
   render() {

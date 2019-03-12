@@ -1,8 +1,7 @@
-import React from "react"
-import { connect } from "react-redux"
-import { bindActionCreators } from 'redux'
-import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { MAIN_BACKGROUND_COLOR, MAIN_FORECOLOR } from '../helpers/constant';
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { logOut } from '../../data/actions/index';
 
 class Header extends React.Component {
@@ -61,7 +60,7 @@ function mapStateToProps({ userData }) {
 function mapDispatchToProps(dispatch) {
   return ({
     handleLogOut: bindActionCreators(logOut, dispatch),
-  })
+  });
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

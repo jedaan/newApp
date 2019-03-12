@@ -28,7 +28,7 @@ if (!isEmptyObject(userData)) {
   store.dispatch({
     type: SUCCESS_LOG_IN,
     payload: userData
-  })
+  });
 }
 
 ReactDOM.hydrate(

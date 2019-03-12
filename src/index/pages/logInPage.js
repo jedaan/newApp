@@ -23,7 +23,7 @@ class LogInPage extends Component {
     if (!isEmptyObject(params)) {
       let { email, logInFromRegister } = params;
       logInFromRegister = (logInFromRegister === "true") ? true : false;
-      this.setState({ email, logInFromRegister })
+      this.setState({ email, logInFromRegister });
     }
   }
 
@@ -50,7 +50,7 @@ class LogInPage extends Component {
           logInFromRegister={logInFromRegister}
           onSubmit={this.handleLogIn} />
       </div>
-    )
+    );
   }
 }
 
@@ -68,5 +68,4 @@ function mapDispatchToProps(dispatch) {
 
 export default {
   component: connect(mapStateToProps, mapDispatchToProps)(withRouter(LogInPage))
-}
-
+};

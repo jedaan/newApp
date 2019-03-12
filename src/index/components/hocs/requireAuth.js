@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { Redirect } from "react-router-dom"
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 export default ComposedComponent => {
   class RequireAuth extends Component {
@@ -13,7 +13,7 @@ export default ComposedComponent => {
           return <Redirect to="/login" />;
 
         default:
-          return <ComposedComponent {...this.props} />
+          return <ComposedComponent {...this.props} />;
       }
     }
   }
@@ -21,5 +21,5 @@ export default ComposedComponent => {
   function mapStateToProps({ userData }) {
     return { authenticated: userData.authenticated };
   }
-  return connect(mapStateToProps)(RequireAuth)
-}
+  return connect(mapStateToProps)(RequireAuth);
+};

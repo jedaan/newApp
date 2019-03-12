@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, {Component} from 'react';
 import {
   Form,
   FormGroup,
@@ -6,8 +6,8 @@ import {
   Button,
 } from 'reactstrap';
 import InputHoc from '../comp/input';
-import RegisterForm from "../hocs/registerForm";
-import {MAIN_BACKGROUND_COLOR} from "../../helpers/constant";
+import RegisterForm from '../hocs/registerForm';
+import {MAIN_BACKGROUND_COLOR} from '../../helpers/constant';
 import {isEmptyObject} from '../../helpers/validate';
 
 class LogIn extends Component {
@@ -57,7 +57,7 @@ class LogIn extends Component {
     let {formData} = this.state;
     let {email, logInFromRegister} = this.props;
     if (!isEmptyObject(email)) {
-      emailToShow = email
+      emailToShow = email;
     } else {
       emailToShow = formData.email;
     }
@@ -110,7 +110,7 @@ class LogIn extends Component {
           </Col>
         </FormGroup>
       </Form>
-    )
+    );
   }
 }
 

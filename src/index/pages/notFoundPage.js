@@ -1,9 +1,5 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-
-const styles = {
-  marginTop: "80px"
-};
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const NotFoundPage = ({ staticContext = {} }) => {
   staticContext.notFound = true;
@@ -16,13 +12,13 @@ const NotFoundPage = ({ staticContext = {} }) => {
   );
 
   return (
-    <div style={styles}>
+    <div>
       {head()}
       <h3 className="center-align">Oops! Route not found!!</h3>
     </div>
-  )
+  );
 };
 
 export default {
   component: NotFoundPage
-}
+};
