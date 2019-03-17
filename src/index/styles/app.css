@@ -3,6 +3,10 @@
   overflow-x: hidden;
 }
 
+.page_container{
+  margin-top: 80px;
+}
+
 .register_page_container{
   margin-top: 10px;
 }
@@ -103,7 +107,7 @@
 .login_page_style {
   width: 350px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 180px;
   border: 1px solid #e8eff3;
   padding: 10px;
   box-shadow: 2px 2px #e8eff3;
@@ -127,17 +131,14 @@
 
 }
 
-a {
-  color: #ffffff;
-}
-
-
 .navbar {
     top: 0;
     left: 0;
     right: 0;
-    background:#0bceaf0d;
+    background: #0bceaf;
     z-index: 1000;
+    opacity: 1.8;
+    position: fixed;
 }
     
     
@@ -154,7 +155,7 @@ a {
 }
 
 .navbar-nav .nav-link:hover{
-  color: #0bceaf;
+  color: white;
 
 }
 .navbar-toggler:not(:disabled):not(.disabled) {
@@ -224,17 +225,17 @@ a {
 
 .cv_page_style{
   height: 100%;
+  padding-top: 60px;
 }
 
 .floating-menu {
   font-family: sans-serif;
-  background: yellowgreen;
+  background:#0bceaf;
   padding: 5px;;
-  width: 130px;
   z-index: 100;
   position: fixed;
-  margin-top: 10%;
-  width: 40px;
+  width: 90px;
+  top: 66px;
 }
 .floating-menu a, 
 .floating-menu h3 {
@@ -242,4 +243,14 @@ a {
   display: block;
   margin: 0 0.5em;
   color: white;
+  padding-top: 10px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-top: 4%;
+  margin-left: 4%;
 }

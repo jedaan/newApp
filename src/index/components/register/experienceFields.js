@@ -6,7 +6,7 @@ import { MAIN_BACKGROUND_COLOR } from '../../helpers/constant';
 import { validate } from '../../helpers/validate';
 import RegisterForm from '../hocs/registerForm';
 
-const END_DATE_NAME = "endDate";
+const END_DATE_NAME = "endYear";
 const CURRENT_WORK = "currentWork";
 
 class ExperienceFields extends React.Component {
@@ -15,11 +15,11 @@ class ExperienceFields extends React.Component {
     this.state = {
       currentWork: false,
       formData: {
-        company: '', role: '', currentWork: false, startDate: '', endDate: '',
+        companyId: '', currentWork: false, startYear: '', endYear: '', title: '',
         companyContent: ''
       },
       validData: {
-        company: false, role: false, currentWork: false, startDate: false, endDate: false
+        companyId: false,  currentWork: true, startYear: false, endYear: false, title: ''
       },
     };
     this.handleInputSave = this.handleInputSave.bind(this);
@@ -42,6 +42,7 @@ class ExperienceFields extends React.Component {
   }
 
   handleAddNewWork() {
+    debugger;
     let doNotValidate = '';
     if (!this.state.currentWork) {
       doNotValidate = CURRENT_WORK;
@@ -51,10 +52,10 @@ class ExperienceFields extends React.Component {
       this.setState({
         currentWork: false,
         formData: {
-          company: '', role: '', currentWork: false, startDate: '', endDate: '', companyContent: ''
+          companyId: '', title: '', currentWork: false, startYear: '', endYear: '', companyContent: ''
         },
         validData: {
-          company: false, role: false, currentWork: false, startDate: false, endDate: false
+          companyId: false, title: false, currentWork: false, startYear: false, endYear: false
         },
       });
     } else {
@@ -101,20 +102,20 @@ class ExperienceFields extends React.Component {
             <FormGroup>
               <OptionHoc data={this.props.companies}
                 labelName={"Company"}
-                type="select" name="company"
-                id="company"
-                value={formData.company}
+                type="select" name="companyId"
+                id="companyId"
+                value={formData.companyId}
                 onValueChange={this.handleInputSave}
                 onSetValid={this.handleSetValid} />
             </FormGroup>
           </Col>
           <Col md={4}>
             <FormGroup>
-              <InputHoc labelName={"Role"}
+              <InputHoc labelName={"Title"}
                 type="text"
-                name="role"
-                id="role"
-                value={formData.role}
+                name="title"
+                id="title"
+                value={formData.title}
                 onValueChange={this.handleInputSave}
                 onSetValid={this.handleSetValid} />
             </FormGroup>
@@ -136,27 +137,23 @@ class ExperienceFields extends React.Component {
         <Row>
           <Col md={4}>
             <FormGroup>
-              <Label for="Start">Start</Label>
-              <Input
-                type="date"
-                name="startDate"
-                id="startDate"
-                placeholder="Start"
-                onChange={(e) => this.handleChangeDate(e.target)}
-              />
+              <InputHoc labelName={"Start"}
+                name="startYear"
+                id="startYear"
+                value={formData.startYear}
+                onValueChange={this.handleInputSave}
+                onSetValid={this.handleSetValid} />
             </FormGroup>
           </Col>
           {(!currentWork) &&
             <Col md={4}>
               <FormGroup>
-                <Label for="End">End</Label>
-                <Input
-                  type="date"
-                  name={END_DATE_NAME}
-                  id={END_DATE_NAME}
-                  placeholder="End"
-                  onChange={(e) => this.handleChangeDate(e.target)}
-                />
+                <InputHoc labelName={"End"}
+                  name="endYear"
+                  id="endYear"
+                  value={formData.endYear}
+                  onValueChange={this.handleInputSave}
+                  onSetValid={this.handleSetValid} />
               </FormGroup>
             </Col>}
           <Col md={2}>

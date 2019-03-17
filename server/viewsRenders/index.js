@@ -11,7 +11,9 @@ export default (req, store, context) => {
   const content = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.path} context={context}>
-        {renderRoutes(Routes)}
+        <div>
+          {renderRoutes(Routes)}
+        </div>
       </StaticRouter>
     </Provider>
   );
@@ -28,6 +30,8 @@ export default (req, store, context) => {
         <meta name="keywords" content="creative, cv, designer,  online cv, online resume, professional resume, responsive, resume, vcard " />
         <meta name="developer" content="Md. Siful Islam">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../assets/icons/font-awesome-4.7.0/css/font-awesome.min.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/plugins/css/bootstrap.min.css">
 

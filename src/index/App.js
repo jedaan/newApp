@@ -29,10 +29,12 @@ class App extends React.Component {
       return (
         <div>
           <Header />
-          {renderRoutes(route.routes)}
+          <div className="page_container">
+            {renderRoutes(route.routes)}
+          </div>
         </div>);
     }
   }
 }
 
-export default {component: App};
+export default { component: App };

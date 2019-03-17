@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {validate, isEmptyObject, isEmptyArray} from '../../helpers/validate';
+import React, { Component } from 'react';
+import { validate, isEmptyObject, isEmptyArray } from '../../helpers/validate';
 
 const RegisterForm = (WrappedComponent) => {
   return class Cmp extends Component {
@@ -58,9 +58,9 @@ const RegisterForm = (WrappedComponent) => {
     render() {
       return (
         <WrappedComponent {...this.props} onInputSave={this.handleInputSave}
-                          onSetValid={this.handleSetValid}
-                          onSubmitForm={this.handleSubmitForm}
-                          onSubmitAddForm={this.handleSubmitAddForm}/>
+          onSetValid={this.handleSetValid}
+          onSubmitForm={this.handleSubmitForm}
+          onSubmitAddForm={this.handleSubmitAddForm} />
       );
     }
   };

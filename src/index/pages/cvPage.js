@@ -29,6 +29,7 @@ class CvPage extends Component {
 
   render() {
     let { userData } = this.props;
+    console.log('userData', userData);
     if (isEmptyObject(userData)) {
       return null;
     }
@@ -36,7 +37,7 @@ class CvPage extends Component {
       <div className="cv_page_style">
         <SideNavigator />
         <Container>
-          <CvAboutMe />
+          <CvAboutMe userData={userData} />
           {/*  <CvAboutMe />
               <CvHeader
                 firstName={userData.firstName}

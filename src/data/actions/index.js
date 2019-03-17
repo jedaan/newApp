@@ -1,4 +1,5 @@
 import * as type from './type';
+import skillsData from '../../index/components/register/skillsData';
 
 export const fetchRegistrationData = () => async (dispatch, getState, api) => {
   await api.post("/users/newuser")
@@ -14,9 +15,18 @@ export const fetchRegistrationData = () => async (dispatch, getState, api) => {
     });
 };
 
-export const registerNewUser = (User, Degrees, Companies, Skills, Languages) => async (dispatch, getState, api) => {
+export const registerNewUser = (User, Education, Experience, SkillsData, LanguagesData) => async (dispatch, getState, api) => {
+  let Skills = [], Languages = [];
+
+  for (let i = 0; i < SkillsData.length; i++) {
+    Skills.push(SkillsData[i].skill);
+  }
+  for (let i = 0; i < LanguagesData.length; i++) {
+    Languages.push(LanguagesData[i].language);
+  }
+
   const response = await api.post("/users/RegisterNewUser", {
-    User, Degrees, Companies, Skills, Languages
+    User, Education, Experience, Skills, Languages
   });
   dispatch({
     type: type.FETCH_REGISTER_DATA,
@@ -27,10 +37,10 @@ export const registerNewUser = (User, Degrees, Companies, Skills, Languages) => 
 
 export const firstLogIn = (email, password) => async (dispatch, getState, api) => {
   try {
-    const response = await api.post("/users/firstLogIn", {
+    await api.post("/users/firstLogIn", {
       email, password
     }).then(response => {
-      let user = response.data; 
+      let user = response.data;
       localStorage.setItem('user', JSON.stringify(user));
       dispatch({
         type: type.SUCCESS_LOG_IN,
@@ -49,7 +59,7 @@ export const firstLogIn = (email, password) => async (dispatch, getState, api) =
 
 export const logIn = (email, password) => async (dispatch, getState, api) => {
   try {
-    const response = await api.post("/users/logIn", {
+    await api.post("/users/Login", {
       email, password
     }).then(response => {
       let user = response.data;
@@ -88,7 +98,7 @@ export const logOut = () => async (dispatch, getState, api) => {
 
 export const checkEmail = (email) => async (dispatch, getState, api) => {
   try {
-    const response = await api.post("/users/UserIsExsist", {
+    await api.post("/users/CheckIfEmailExists", {
       email
     }).then(response => {
       let valid = response.data;

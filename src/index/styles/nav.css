@@ -38,3 +38,10 @@
   -webkit-justify-content: center;
   flex-direction: row;
   -webkit-flex-direction: row; }
+
+  .social-icon li {
+    list-style: none;
+    float: left;
+    margin-bottom: 0px;
+    margin-right: 8px;
+}

@@ -30,7 +30,7 @@ class RegisterPage extends Component {
       workData: [],
       skillsData: [],
       languagesData: [],
-      userExsist:false
+      userExsist: false
     };
     this.handleSubmitPersonalData = this.handleSubmitPersonalData.bind(this);
     this.handleSubmitEducationWorkData = this.handleSubmitEducationWorkData.bind(this);
@@ -86,7 +86,7 @@ class RegisterPage extends Component {
     this.setState({ educationData, workData });
   }
 
-
+  
   handleSkillsUpdate(languagesData, skillsData) {
     this.setState({ languagesData, skillsData });
   }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import RegisterForm from '../hocs/registerForm';
 import OptionHoc from '../comp/option';
+import InputHoc from '../comp/input';
 import { MAIN_BACKGROUND_COLOR } from '../../helpers/constant';
 import { validate } from '../../helpers/validate';
 
@@ -11,11 +12,11 @@ class EducationFields extends React.Component {
     super(props);
     this.state = {
       formData: {
-        institution: '', graduate: '', degree: '',
+        graduateYear: '', institutionId: '', degreeId: '',
         institutionContent: '', degreeContent: ''
       },
       validData: {
-        institution: false, graduate: false, degree: false
+        institutionId: false, degreeId: false, graduateYear: false
       },
     };
     this.handleInputSave = this.handleInputSave.bind(this);
@@ -29,6 +30,7 @@ class EducationFields extends React.Component {
     }));
   }
 
+
   handleSetValid(name, value) {
     this.setState((prevState) => ({
       validData: this.props.onSetValid(prevState.validData, name, value)
@@ -40,10 +42,10 @@ class EducationFields extends React.Component {
       this.props.onAddNewEducation(this.state.formData);
       this.setState({
         formData: {
-          institution: '', graduate: '', degree: ''
+          graduateYear: '', institutionId: '', degreeId: ''
         },
         validData: {
-          institution: false, graduate: false, degree: false
+          institutionId: false, graduateYear: false, degreeId: false
         },
       });
     } else {
@@ -64,9 +66,9 @@ class EducationFields extends React.Component {
               <OptionHoc data={institutions}
                 labelName={"Institution"}
                 type="select"
-                name="institution"
-                id="institution"
-                value={formData.institution}
+                name="institutionId"
+                id="institutionId"
+                value={formData.institutionId}
                 onValueChange={this.handleInputSave}
                 onSetValid={this.handleSetValid} />
             </FormGroup>
@@ -75,20 +77,19 @@ class EducationFields extends React.Component {
             <FormGroup>
               <OptionHoc data={degrees}
                 labelName={"Degree"}
-                type="select" name="degree"
-                id="degree"
-                value={formData.degree}
+                type="select" name="degreeId"
+                id="degreeId"
+                value={formData.degreeId}
                 onValueChange={this.handleInputSave}
                 onSetValid={this.handleSetValid} />
             </FormGroup>
           </Col>
           <Col md={3}>
             <FormGroup>
-              <OptionHoc data={this.props.years}
-                labelName={"Graduate Year"}
-                type="select" name="graduate"
-                id="graduate"
-                value={formData.graduate}
+              <InputHoc labelName={"Graduate Year"}
+                name="graduateYear"
+                id="graduateYear"
+                value={formData.graduateYear}
                 onValueChange={this.handleInputSave}
                 onSetValid={this.handleSetValid} />
             </FormGroup>

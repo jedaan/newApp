@@ -12,27 +12,27 @@ class PersonalData extends Component {
     super(props);
     this.state = {
       formData: {
-        firstName: 'jedaan',
-        lastName: 'shammas ',
-        country: '1',
+        firstName: '',
+        lastName: '',
+        countryId: '',
         countryContent: '',
-        city: '1',
-        cityContent: 'Israel',
-        phone: '0524',
-        email: 'j@j.com',
-        yearOfBirth: '1987',
+        cityId: '',
+        cityContent: '',
+        phone: '',
+        email: '',
+        birthYear: '',
         yearOfBirthContent: '',
         gender: ''
       },
       validData: {
         firstName: true,
         lastName: true,
-        country: true,
-        city: true,
+        countryId: true,
+        cityId: true,
         phone: true,
         email: true,
-        yearOfBirth: true,
-        gender: false
+        birthYear: true,
+        gender: true
       },
     };
     this.genderChange = this.genderChange.bind(this);
@@ -118,9 +118,9 @@ class PersonalData extends Component {
           <Col md={6}>
             <OptionHoc data={countries}
               labelName={"Country"}
-              value={formData.country}
-              type="select" name="country"
-              id="country"
+              value={formData.countryId}
+              type="select" name="countryId"
+              id="countryId"
               onValueChange={this.handleInputSave}
               onSetValid={this.handleSetValid} />
 
@@ -128,9 +128,9 @@ class PersonalData extends Component {
           <Col md={6}>
             <OptionHoc data={countries}
               labelName={"City"}
-              value={formData.city}
-              type="select" name="city"
-              id="city"
+              value={formData.cityId}
+              type="select" name="cityId"
+              id="cityId"
               onValueChange={this.handleInputSave}
               onSetValid={this.handleSetValid} />
 
@@ -138,12 +138,10 @@ class PersonalData extends Component {
         </Row>
         <Row>
           <Col md={6}>
-            <OptionHoc data={this.props.years}
-              labelName={"Year of birth"}
-              type="select"
-              value={formData.yearOfBirth}
-              name="yearOfBirth"
-              id="yearOfBirth"
+            <InputHoc labelName={"Year of birth"}
+              value={formData.birthYear}
+              name="birthYear"
+              id="birthYear"
               onValueChange={this.handleInputSave}
               onSetValid={this.handleSetValid} />
           </Col>

@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {validateEmail, validateNumber, validateText} from '../../helpers/validate';
-import {Input, Label} from 'reactstrap';
+import { validateEmail, validateNumber, validateText } from '../../helpers/validate';
+import { Input, Label } from 'reactstrap';
 
 class InputHoc extends Component {
   constructor(props) {
@@ -12,30 +12,32 @@ class InputHoc extends Component {
     };
   }
 
-  /*
+   /*
   * handle on change .
   * */
-  handleOnChange(e) {
-    this.props.onValueChange(e.target.name, e.target.value);
-  }
+ handleOnChange(e) {
+  this.props.onValueChange(e.target.name, e.target.value);
+}
 
   handleBlur(e) {
     let valid = false;
     switch (this.props.type) {
       case 'text':
         valid = validateText(e.target.value);
-        this.setState({valid});
+        this.setState({ valid });
         break;
       case 'email':
         valid = validateEmail(e.target.value);
-        this.setState({valid});
+        this.setState({ valid });
         break;
       case 'password':
       case 'phone':
         valid = validateNumber(e.target.value);
-        this.setState({valid});
+        this.setState({ valid });
         break;
       default:
+        valid = true;
+        this.setState({ valid });
         break;
     }
     this.props.onSetValid(e.target.name, valid);
