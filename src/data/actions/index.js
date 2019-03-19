@@ -46,6 +46,10 @@ export const firstLogIn = (email, password) => async (dispatch, getState, api) =
         type: type.SUCCESS_LOG_IN,
         payload: true
       });
+      dispatch({
+        type: type.SUCCESS_LOG_IN,
+        payload: true
+      });
     }).catch(function (error) {
       dispatch({
         type: type.FAILED_LOG_IN,
@@ -63,6 +67,7 @@ export const logIn = (email, password) => async (dispatch, getState, api) => {
       email, password
     }).then(response => {
       let user = response.data;
+      console.log('data Login', response);
       localStorage.setItem('user', JSON.stringify(user));
       dispatch({
         type: type.SUCCESS_LOG_IN,

@@ -37,7 +37,7 @@ class CvPage extends Component {
       <div className="cv_page_style">
         <SideNavigator />
         <Container>
-          <CvAboutMe userData={userData} />
+          <CvAboutMe user={userData.User} skills={userData.UserSkill} />
           {/*  <CvAboutMe />
               <CvHeader
                 firstName={userData.firstName}

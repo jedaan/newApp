@@ -70,7 +70,6 @@ class PersonalData extends Component {
     let { formData, validData } = this.state;
     let { countries, userExsist } = this.props;
     userExsist = isEmptyObject(userExsist) ? false : userExsist;
-    console.log('aaaaa - ', userExsist);
     return (
       <div className="register_container">
         <h3>Personal data</h3>

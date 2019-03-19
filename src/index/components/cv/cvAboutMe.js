@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row, Container } from 'reactstrap';
-
-const CvAboutMe = ({ userData }) => (
+debugger;
+const CvAboutMe = ({ user, skills }) => (
     <Row>
         <Col md={6}>
             <div className="hello_style">
                 <span>Hello I'm</span>
             </div>
 
-            <h2>{userData.firstName} {userData.lastName}</h2>
-            <h4>{userData.title}</h4>
+            <h2>{user.firstName} {user.lastName}</h2>
+            <h4>{user.title}</h4>
 
             <ul>
-                <li><i className="fa fa-envelope"></i><a href="mailto:">{userData.email}</a></li>
-                <li ><i className="fa fa-phone"></i><a href="callto:">{userData.phone}</a></li>
+                <li><i className="fa fa-envelope"></i><a href="mailto:">{user.email}</a></li>
+                <li ><i className="fa fa-phone"></i><a href="callto:">{user.phone}</a></li>
                 {/* <li ><i className="fa fa-map-marker"></i><address>37, Pollsatnd, New York, United State</address></li> */}
             </ul>
 
@@ -27,18 +27,17 @@ const CvAboutMe = ({ userData }) => (
         <Col md={5}>
             <div className="mh-about-inner">
                 <h2 className="wow fadeInUp">About Me</h2>
-                <p className="wow fadeInUp" >Hello, I’m a {userData.firstName}, web-developer based on {userData.country}.
+                <p className="wow fadeInUp" >Hello, I’m a {user.firstName}, web-developer based on {user.country}.
                 I have rich experience in web site design & building
                      and customization. Also I am good at</p>
                 <div className="about_me_style" >
                     <ul>
-                        <li><span>php</span></li>
-                        <li><span>html</span></li>
-                        <li><span>css</span></li>
-                        <li><span>php</span></li>
-                        <li><span>wordpress</span></li>
-                        <li><span>React</span></li>
-                        <li><span>Javascript</span></li>
+                        {
+                            skills.map((item, index) =>
+                                <li key={index}>
+                                    <span>{item.skill}</span>
+                                </li>)
+                        }
                     </ul>
                 </div>
             </div>
