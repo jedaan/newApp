@@ -9,6 +9,7 @@ import requireAuth from '../components/hocs/requireAuth';
 import { isEmptyObject } from '../helpers/validate';
 import SideNavigator from '../components/sideNavigator';
 import CvAboutMe from '../components/cv/cvAboutMe';
+import CvSkills from '../components/cv/cvSkills';
 
 class CvPage extends Component {
   constructor(props) {
@@ -35,9 +36,12 @@ class CvPage extends Component {
     }
     return (
       <div className="cv_page_style">
-        <SideNavigator />
+        {/* <SideNavigator /> */}
         <Container>
           <CvAboutMe user={userData.User} skills={userData.UserSkill} />
+
+          <CvSkills  />
+
           {/*  <CvAboutMe />
               <CvHeader
                 firstName={userData.firstName}

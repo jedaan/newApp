@@ -29,9 +29,19 @@ class Header extends React.Component {
           <NavbarToggler onClick={this.toggle} className="toggle" />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink href="/">Main</NavLink>
-              </NavItem>
+              </NavItem> */}
+
+              {!authenticated ?
+                <NavItem>
+                  <NavLink href="/register">Register</NavLink>
+                </NavItem> :
+                <NavItem>
+                  <NavLink href="/cvpage">My profile</NavLink>
+                </NavItem>
+              }
+
               {authenticated ?
                 <NavItem>
                   <NavLink href="#" onClick={this.props.handleLogOut}>Logout</NavLink>
@@ -40,10 +50,6 @@ class Header extends React.Component {
                   <NavLink href="/login">Login</NavLink>
                 </NavItem>
               }
-              {!authenticated &&
-                <NavItem>
-                  <NavLink href="/register">Register</NavLink>
-                </NavItem>}
 
             </Nav>
           </Collapse>

@@ -42,7 +42,6 @@ class ExperienceFields extends React.Component {
   }
 
   handleAddNewWork() {
-    debugger;
     let doNotValidate = '';
     if (!this.state.currentWork) {
       doNotValidate = CURRENT_WORK;
