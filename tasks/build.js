@@ -182,7 +182,7 @@ gulp.task('sassAction', function () {
 });
 
 gulp.task('webpack:client', function (done) {
-    gulp.src(['./src/index/client.js'])
+    gulp.src(['./src/client.js'])
         .pipe(webpackStream(webpackConfigClient, webpack))
         .pipe(gulp.dest('./dist/public/scripts')).on('end', done);
 });

@@ -18,15 +18,14 @@ const config = {
     filename: 'server/bundle-server.js',
     path: path.resolve(__dirname, 'build')
   },
- /* resolve:{
+  /* resolve:{
     alias: {
       AppExternals$: path.resolve(__dirname,'../server/client/externals/server-externals.js')
     }
   },*/
-//tells webpack to not bundle any libraries into our output bundles on the server,
-//if it exist inside the node modules folder. this is done to make the process of building the server webpack faster
-  externals:[    webpackNodeExternals()],
+  //tells webpack to not bundle any libraries into our output bundles on the server,
+  //if it exist inside the node modules folder. this is done to make the process of building the server webpack faster
+  externals: [webpackNodeExternals()]
 };
 
 module.exports = merge(baseConfig, config);
-

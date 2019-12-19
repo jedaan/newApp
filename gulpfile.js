@@ -8,13 +8,14 @@ gulp.task('copy', require('./tasks/copy'));
 gulp.task('default', ['message', 'serve']);
 gulp.task('serve', ['watch'], require('./tasks/serve').nodemon);
 gulp.task('watch', ['webpack'], require('./tasks/watch'));
-gulp.task('webpack', ['copyEjs', 'copyAssets', 'sassTask', 'sassTaskMobile', 'sassTaskAction', 'lint', 'translationCombine'], require('./tasks/gulp-webpack').all);
-gulp.task('copyEjs', require('./tasks/copyEjs'));
+gulp.task(
+  'webpack',
+  ['copyAssets', 'sassTask', 'lint', 'translationCombine'],
+  require('./tasks/gulp-webpack').all
+);
 gulp.task('copyAssets', require('./tasks/copyAssets'));
 gulp.task('sassTask', require('./tasks/sass'));
-gulp.task('sassTaskMobile', require('./tasks/sassMobile'));
 gulp.task('copyJson', require('./tasks/copyJson'));
-gulp.task('sassTaskAction', require('./tasks/sassAction'));
 gulp.task('lint', require('./tasks/lint'));
 
 // gulp.task('inject',     ['translationCombine'],     require('./tasks/inject'));

@@ -1,9 +1,9 @@
-import App from './index/App'
-import HomePage from './index/pages/homePage'
-import LogInPage from './index/pages/logInPage';
-import RegisterPage from './index/pages/registerPage';
-import NotFoundPage from './index/pages/notFoundPage'
-import CvPage from './index/pages/cvPage';
+import App from './App';
+import HomePage from './pages/homePage';
+import LogInPage from './pages/logInPage';
+import RegisterPage from './pages/registerPage';
+import NotFoundPage from './pages/notFoundPage';
+import CvPage from './pages/cvPage';
 export default [
   {
     ...App,
@@ -15,7 +15,7 @@ export default [
       },
       {
         ...LogInPage,
-        path: '/logIn/:email?/:logInFromRegister?',
+        path: '/logIn/:email?/:logInFromRegister?'
       },
       {
         ...RegisterPage,
@@ -30,4 +30,4 @@ export default [
       }
     ]
   }
-]
+];
