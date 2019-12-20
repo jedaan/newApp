@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import LogIn from '../components/register/logIn';
 import { isEmptyObject } from "../helpers/validate";
-import { firstLogIn, logIn } from "../../data/actions/index";
+import { firstLogIn, logIn } from "../data/actions/index";
 
 class LogInPage extends Component {
   constructor() {

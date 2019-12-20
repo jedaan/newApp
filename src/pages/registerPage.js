@@ -8,7 +8,7 @@ import {
 import moment from 'moment';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchRegistrationData, registerNewUser, checkEmail } from '../../data/actions/index';
+import { fetchRegistrationData, registerNewUser, checkEmail } from '../data/actions/index';
 import { MAIN_BACKGROUND_COLOR } from '../helpers/constant';
 import PersonalData from '../components/register/personalData';
 import EducationWorkData from '../components/register/educationWorkData';

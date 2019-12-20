@@ -4,12 +4,8 @@ const clientBaseConfig = require('./webpack.client.base');
 const config = {
 
     entry: {
-        'index': './src/index/client.js',
+        'index': './src/client.js',
     },
-    externals: {
-        lodash: '_',
-        jquery: '$',
-    }
 };
 
 module.exports = merge(baseConfig, clientBaseConfig, config);

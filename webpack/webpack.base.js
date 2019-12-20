@@ -35,7 +35,6 @@ module.exports = {
             ['_root']: path.resolve(path.join(__dirname, '/')),
             _src: path.resolve(__dirname, '../src/'),
             _assets: path.resolve(__dirname, '../src/assets/'),
-            '_index-components': path.resolve(__dirname, '../src/index/components/'),
         }
     }
 };

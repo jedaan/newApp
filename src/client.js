@@ -6,10 +6,10 @@ import { applyMiddleware, createStore } from "redux";
 import reduxThunk from "redux-thunk";
 import { renderRoutes } from "react-router-config";
 import axios from "axios";
-import Routes from "../Routes";
-import rootReducer from "../data/reducers";
+import Routes from "./Routes";
+import rootReducer from "./data/reducers";
 import { isEmptyObject } from "./helpers/validate";
-import { SUCCESS_LOG_IN } from '../data/actions/type';
+import { SUCCESS_LOG_IN } from './data/actions/type';
 
 const axiosInstance = axios.create({
   baseURL: "/api/"

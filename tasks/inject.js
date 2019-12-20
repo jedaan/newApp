@@ -11,8 +11,8 @@ var inject              = require('gulp-inject');
 var runSequence         = require('run-sequence');
 // var sq                  = require('streamqueue');
 var toInject            = require('./config/indexFilesToInject');
-var mobileFilesToInject = require('./config/mobileFilesToInject')
-var actionsFilesToInject = require('./config/actionsFilesToInject');
+// var mobileFilesToInject = require('./config/mobileFilesToInject')
+// var actionsFilesToInject = require('./config/actionsFilesToInject');
 var toExclude           = require('./config/bowerFilesToExclude');
 
 function doInject (fileName,files,cssFileNames){
@@ -42,13 +42,13 @@ gulp.task('inject:index', function (done) {
     return  doInject('src/index.ejs',toInject,'client/views/home/styles/*.css');
 });
 
-gulp.task('inject:mobile', function (done) {
-    return  doInject('src/mobile.ejs',mobileFilesToInject,['client/views/home/styles/*.css','client/views/mobile/styles/*.css']);
-});
+// gulp.task('inject:mobile', function (done) {
+//     return  doInject('src/mobile.ejs',mobileFilesToInject,['client/views/home/styles/*.css','client/views/mobile/styles/*.css']);
+// });
 
-gulp.task('inject:actions', function (done) {
-    return  doInject('src/actions.ejs',actionsFilesToInject,['client/views/home/styles/*.css','client/views/actions/styles/*.css']);
-});
+// gulp.task('inject:actions', function (done) {
+//     return  doInject('src/actions.ejs',actionsFilesToInject,['client/views/home/styles/*.css','client/views/actions/styles/*.css']);
+// });
 
 
 module.exports = function (done) {

@@ -166,23 +166,9 @@ gulp.task('sass', function () {
         .pipe(concat('index.css'))
         .pipe(gulp.dest(sourceFiles.distBuild.public + '/styles'));
 });
-gulp.task('sassMobile', function () {
-    gulp.src(sourceFiles.sassFilesMobile)
-        .pipe(plumber())
-        .pipe(sass())
-        .pipe(concat('mobile.css'))
-        .pipe(gulp.dest(sourceFiles.distBuild.public + '/styles'));
-});
-gulp.task('sassAction', function () {
-    gulp.src(sourceFiles.sassFilesAction)
-        .pipe(plumber())
-        .pipe(sass())
-        .pipe(concat('action.css'))
-        .pipe(gulp.dest(sourceFiles.distBuild.public + '/styles'));
-});
 
 gulp.task('webpack:client', function (done) {
-    gulp.src(['./src/index/client.js'])
+    gulp.src(['./src/client.js'])
         .pipe(webpackStream(webpackConfigClient, webpack))
         .pipe(gulp.dest('./dist/public/scripts')).on('end', done);
 });
@@ -201,7 +187,7 @@ module.exports = function (done) {
     runSequence(
         'setEnvironmentVariable',
         'clean:dist',
-        ['copy:main', 'copy:ejs','copyJson', 'sass', 'sassMobile', 'sassAction', 'copy:src', 'translationsCombine'],
+        ['copy:main', 'copy:ejs','copyJson', 'sass', 'copy:src', 'translationsCombine'],
         ['webpack:client'],
         'copy:server',
         ['webpack:server'],

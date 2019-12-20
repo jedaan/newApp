@@ -1,5 +1,5 @@
 import * as type from './type';
-import skillsData from '../../index/components/register/skillsData';
+import skillsData from '../../components/register/skillsData';
 
 export const fetchRegistrationData = () => async (dispatch, getState, api) => {
   await api.post("/users/newuser")

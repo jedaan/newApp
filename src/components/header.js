@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { logOut } from '../../data/actions/index';
+import { logOut } from '../data/actions/index';
 
 class Header extends React.Component {
   constructor(props) {

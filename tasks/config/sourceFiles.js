@@ -6,22 +6,10 @@ let jsonFile = [
     srcFolder + '/server/*.json'
 ];
 let sassFiles = [
-    srcFolder + '/index/styles/*.scss',
-    srcFolder + '/index/styles/**/*.scss',
-    srcFolder + '/index/styles/*.css',
-    srcFolder + '/index/styles/**/*.css',
-];
-let sassFilesMobile = [
-    srcFolder + '/mobile/styles/*.scss',
-    srcFolder + '/mobile/styles/**/*.scss',
-    srcFolder + '/mobile/styles/*.css',
-    srcFolder + '/mobile/styles/**/*.css',
-];
-let sassFilesAction = [
-    srcFolder + '/actions/styles/*.scss',
-    srcFolder + '/actions/styles/**/*.scss',
-    srcFolder + '/actions/styles/*.css',
-    srcFolder + '/actions/styles/**/*.css',
+    srcFolder + '/styles/*.scss',
+    srcFolder + '/styles/**/*.scss',
+    srcFolder + '/styles/*.css',
+    srcFolder + '/styles/**/*.css',
 ];
 let sassFilesToWatch = [
     srcFolder + '/**/styles/*.scss',
@@ -85,7 +73,5 @@ module.exports = {
     distBuild,
     translationFiles,
     sassFilesToWatch,
-    sassFilesMobile,
-    sassFilesAction,
     jsonFile
 };
